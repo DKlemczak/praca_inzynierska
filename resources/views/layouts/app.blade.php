@@ -9,20 +9,30 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
+    <!-- Skrypty -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Fonts -->
+    <!-- Czcionki -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
+    <!-- Style -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
+        <div class="col-12 row" style="position: fixed; z-index:10;">
+            <div>
+                <a class="ukryte-menu px-2" aria-label="Przejście do menu strony" href="#menu">Menu</a>
+                <a class="ukryte-menu px-2" aria-label="Przejście do zawartości strony" href="#content">Treść podstrony</a>
+                <a class="ukryte-menu px-2" aria-label="Przejście do stopki strony" href="#footer">Stopka strony</a>
+            </div>
+        </div>
+        <div class="dostepnosci">
+            <!--Tutaj dostępności-->
+        </div>
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container" id="menu">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -31,14 +41,14 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
+                    <!-- Lewa strona menu -->
                     <ul class="navbar-nav me-auto">
 
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+                    <!-- Prawa strona menu -->
                     <ul class="navbar-nav align-self-end ms-auto">
-                        <!-- Authentication Links -->
+                        <!-- Autoryzacja -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -74,10 +84,11 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
+        <main class="py-4" id="content">
             @yield('content')
         </main>
+        <footer id="footer">
+        </footer>
     </div>
 </body>
 </html>
