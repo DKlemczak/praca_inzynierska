@@ -43,7 +43,21 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Lewa strona menu -->
                     <ul class="navbar-nav me-auto">
-
+                        <li>
+                            <a class="nav-link" href="">Aktualności</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="">Deklaracja dostępności</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="">Regulamin</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="">O nas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Kontakt</a>
+                        </li>
                     </ul>
 
                     <!-- Prawa strona menu -->
@@ -68,6 +82,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="">Panel administratora</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
