@@ -21,15 +21,18 @@ Route::group(['middleware' => 'admin'], function ()
 {
     Route::get("/dashboard", "App\Http\Controllers\Dashboard\DashboardController@index")->name('dashboard');
 
-    Route::resource('dashboard/products', 'App\Http\Controllers\Dashboard\ProductsController', ['except'=>['show'], 'names' => [
-        'index'   => 'dashboard.products.index'
+    Route::resource('dashboard/news', 'App\Http\Controllers\Dashboard\NewsController', ['except'=>['show'], 'names' => [
+        'index'   => 'dashboard.news.index',
+        'create'  => 'dashboard.news.create',
+        'store'   => 'dashboard.news.store',
+        'edit'    => 'dashboard.news.edit',
+        'update'  => 'dashboard.news.update',
+        'destroy' => 'dashboard.news.destroy'
     ]], ['except' => ['show']])->middleware(['auth', 'admin']);
 
-    Route::resource('dashboard/products/{id}/photos', 'App\Http\Controllers\Dashboard\ProductPhotosController', ['except'=>['show'], 'names' => [
-        'index'   => 'dashboard.products.photos.index',
-        'create'  => 'dashboard.products.photos.create',
-        'store'   => 'dashboard.products.photos.store',
-        'destroy' => 'dashboard.products.photos.destroy'
+    Route::resource('dashboard/contact', 'App\Http\Controllers\Dashboard\ContactController', ['except'=>['show'], 'names' => [
+        'index'   => 'dashboard.contact.index',
+        'update'  => 'dashboard.contact.update'
     ]], ['except' => ['show']])->middleware(['auth', 'admin']);
-
 });
+
