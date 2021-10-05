@@ -106,11 +106,43 @@
                 </div>
             </div>
         </nav>
-        <main class="py-4" id="content">
+        <main class="py-4" id="content" style="min-height: 680px;">
             @yield('content')
         </main>
-        <footer id="footer">
-        </footer>
+        <footer class="footer font-small">
+        <div class="row mx-auto justify-content-center text-center pb-3">
+            <div class="col-2">
+                <p class="footer-header mt-3 mb-0">Dane kontaktowe</p>
+                <hr class="border-white mt-1 mb-1">
+                <div class="textwidget text-left">
+                    <strong>Widzialni w internecie</strong><br> 
+                    <span tabindex="0">ul. {!!$contact->street!!} {!!$contact->building_number!!}</span><br> <span tabindex="0">
+                    <i aria-label="Kod pocztowy" class="fa fa-home"></i> {!!$contact->postcode!!} {!!$contact->city!!}</span><br>
+                    <span tabindex="0"><i aria-label="Adres E-mail" class="fa fa-envelope"></i></span> 
+                    <a>{!!$contact->email!!}</a><br> 
+                    <span tabindex="0"><i aria-label="Numer telefonu" class="fas fa-phone-square"></i> {!!$contact->phone_number!!}</span><br> 
+                </div>
+            </div>
+            <div class="col-2 offset-1">
+                <p class="footer-header mt-3 mb-0">Godziny kontaktowe</p>
+                <hr class="border-white mt-1 mb-1">
+                <div class="textwidget text-left">
+                    <i class="far fa-clock"></i> <span tabindex="0">Od poniedziałku do piątku od 8:00 do 16:00</span><br>
+                    <i class="far fa-clock"></i> <span tabindex="0">W soboty i niedzielę nieczynne</span>
+                </div>
+            </div>
+            <div class="col-2 offset-1">
+                <p class="footer-header mt-3 mb-0">Szybkie linki</p>
+                <hr class="border-white mt-1 mb-1">
+                <a class="" href="{{ route('index') }}">Aktualności</a>
+                <br>
+                <a class="" href="{{ route('index') }}">Kontakt</a>
+            </div>
+        </div>
+        <div class="row mx-auto">
+            <div class="col-12 text-center py-3">© 2021 Copyright: Daniel Klemczak</div>
+        </div>
+    </footer>
     </div>
 </body>
 </html>
