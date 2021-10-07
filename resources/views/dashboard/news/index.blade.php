@@ -21,7 +21,6 @@
                     <span class="text-center h5">Użytkownik</span>
                 </div>
                 <div class="col-1"></div>
-                
             </div>
         @foreach ($news as $new)
             <div class="row mt-2 border-bottom">

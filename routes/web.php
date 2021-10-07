@@ -30,6 +30,15 @@ Route::group(['middleware' => 'admin'], function ()
         'destroy' => 'dashboard.news.destroy'
     ]], ['except' => ['show']])->middleware(['auth', 'admin']);
 
+    Route::resource('dashboard/staticsites', 'App\Http\Controllers\Dashboard\StaticSitesController', ['except'=>['show'], 'names' => [
+        'index'   => 'dashboard.staticsites.index',
+        'create'  => 'dashboard.staticsites.create',
+        'store'   => 'dashboard.staticsites.store',
+        'edit'    => 'dashboard.staticsites.edit',
+        'update'  => 'dashboard.staticsites.update',
+        'destroy' => 'dashboard.staticsites.destroy'
+    ]], ['except' => ['show']])->middleware(['auth', 'admin']);
+
     Route::resource('dashboard/contact', 'App\Http\Controllers\Dashboard\ContactController', ['except'=>['show'], 'names' => [
         'index'   => 'dashboard.contact.index',
         'update'  => 'dashboard.contact.update'

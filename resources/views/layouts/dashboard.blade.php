@@ -45,6 +45,9 @@
                     <!-- Lewa strona menu -->
                     <ul class="navbar-nav me-auto">
                         <li>
+                            <a class="nav-link" href="{{ route('dashboard.staticsites.index') }}">Strony statyczne</a>
+                        </li>
+                        <li>
                             <a class="nav-link" href="{{ route('dashboard.news.index') }}">Aktualności</a>
                         </li>
                         <li>
