@@ -16,6 +16,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <script src="https://kit.fontawesome.com/04566ad3f7.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
 
     <!-- Style -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-            <div class="text-center text-white rounded color">
+            <div class="text-center rounded color">
             <h1 class="display-4">Aktualności</h1>
             <a class="btn btn-lg btn-secondary mb-1" href="{{ route('dashboard.news.create') }}">Dodaj</a>
             </div>
@@ -29,7 +29,7 @@
                     <span class="text-center">{!! $new->title !!}</span>
                 </div>
                 <div class="col-4">
-                    <span class="text-center">{!! $new->content !!}</span>
+                    <span class="text-center">{{ $new->content }}</span>
                 </div>
                 <div class="col-2">
                     <span class="text-center">{!! $new->created_at !!}</span>

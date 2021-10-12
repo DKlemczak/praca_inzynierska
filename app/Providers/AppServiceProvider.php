@@ -29,5 +29,13 @@ class AppServiceProvider extends ServiceProvider
             $contact = Contact::first();
             $view->with('contact',$contact);
         });
+        View::composer('layouts.app', function ($view) {
+            $theme = \Cookie::get('theme');
+            if ($theme != 'dark' && $theme != 'light') {
+                $theme = 'light';
+            }
+
+            $view->with('theme', $theme);
+        });
     }
 }

@@ -20,7 +20,7 @@
     <!-- Style -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="{{ $theme . '-theme' }}">
     <div id="app">
         <div class="col-12 row" style="position: fixed; z-index:10;">
             <div>
@@ -32,7 +32,7 @@
         <div class="dostepnosci">
             <!--Tutaj dostępności-->
         </div>
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm {{ $theme . '-theme' }}">
             <div class="container" id="menu">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -45,26 +45,26 @@
                     <!-- Lewa strona menu -->
                     <ul class="navbar-nav me-auto">
                         <li>
-                            <a class="nav-link" href="">Aktualności</a>
+                            <a class="nav-link" href="{{ route('news.index') }}">Aktualności</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="">Deklaracja dostępności</a>
+                            <a class="nav-link" href="{{ route('ad') }}">Deklaracja dostępności</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="">Regulamin</a>
+                            <a class="nav-link" href="{{ route('tos') }}">Regulamin</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="">O nas</a>
+                            <a class="nav-link" href="{{ route('about') }}">O nas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Kontakt</a>
+                            <a class="nav-link" href="{{ route('contact') }}">Kontakt</a>
                         </li>
                     </ul>
 
                     <!-- Prawa strona menu -->
                     <ul class="navbar-nav align-self-end ms-auto">
                         <li>
-                            <i class="fas fa-adjust"></i>
+                            <i  id="theme-toggle" class="fas fa-adjust"></i>
                             <span>A</span>
                             <span>A+</span>
                             <span>A++</span>
@@ -106,43 +106,85 @@
                 </div>
             </div>
         </nav>
-        <main class="py-4" id="content" style="min-height: 680px;">
+        <main class="py-4" id="content" style="min-height: 69vh;">
             @yield('content')
         </main>
         <footer class="footer font-small">
-        <div class="row mx-auto justify-content-center text-center pb-3">
-            <div class="col-2">
-                <p class="footer-header mt-3 mb-0">Dane kontaktowe</p>
-                <hr class="border-white mt-1 mb-1">
-                <div class="textwidget text-left">
-                    <strong>Widzialni w internecie</strong><br> 
-                    <span tabindex="0">ul. {!!$contact->street!!} {!!$contact->building_number!!}</span><br> <span tabindex="0">
-                    <i aria-label="Kod pocztowy" class="fa fa-home"></i> {!!$contact->postcode!!} {!!$contact->city!!}</span><br>
-                    <span tabindex="0"><i aria-label="Adres E-mail" class="fa fa-envelope"></i></span> 
-                    <a>{!!$contact->email!!}</a><br> 
-                    <span tabindex="0"><i aria-label="Numer telefonu" class="fas fa-phone-square"></i> {!!$contact->phone_number!!}</span><br> 
+            <div class="row mx-auto justify-content-center text-center shadow pb-3">
+                <div class="col-2">
+                    <p class="footer-header mt-3 mb-0">Dane kontaktowe</p>
+                    <hr class="border-white mt-1 mb-1">
+                    <div class="textwidget text-left">
+                        <strong>Widzialni w internecie</strong><br>
+                        <span tabindex="0">ul. {!!$contact->street!!} {!!$contact->building_number!!}</span><br> <span tabindex="0">
+                        <i aria-label="Kod pocztowy" class="fa fa-home"></i> {!!$contact->postcode!!} {!!$contact->city!!}</span><br>
+                        <span tabindex="0"><i aria-label="Adres E-mail" class="fa fa-envelope"></i></span>
+                        <a>{!!$contact->email!!}</a><br>
+                        <span tabindex="0"><i aria-label="Numer telefonu" class="fas fa-phone-square"></i> {!!$contact->phone_number!!}</span><br>
+                    </div>
+                </div>
+                <div class="col-2 offset-1">
+                    <p class="footer-header mt-3 mb-0">Godziny kontaktowe</p>
+                    <hr class="border-white mt-1 mb-1">
+                    <div class="textwidget text-left">
+                        <i class="far fa-clock"></i> <span tabindex="0">Od poniedziałku do piątku od 8:00 do 16:00</span><br>
+                        <i class="far fa-clock"></i> <span tabindex="0">W soboty i niedzielę nieczynne</span>
+                    </div>
+                </div>
+                <div class="col-2 offset-1">
+                    <p class="footer-header mt-3 mb-0">Szybkie linki</p>
+                    <hr class="border-white mt-1 mb-1">
+                    <a class="" href="{{ route('news.index') }}">Aktualności</a>
+                    <br>
+                    <a class="" href="{{ route('ad') }}">Deklaracja dostępności</a>
+                    <br>
+                    <a class="" href="{{ route('tos') }}">Regulamin</a>
+                    <br>
+                    <a class="" href="{{ route('about') }}">O nas</a>
+                    <br>
+                    <a class="" href="{{ route('ad') }}">Kontakt</a>
                 </div>
             </div>
-            <div class="col-2 offset-1">
-                <p class="footer-header mt-3 mb-0">Godziny kontaktowe</p>
-                <hr class="border-white mt-1 mb-1">
-                <div class="textwidget text-left">
-                    <i class="far fa-clock"></i> <span tabindex="0">Od poniedziałku do piątku od 8:00 do 16:00</span><br>
-                    <i class="far fa-clock"></i> <span tabindex="0">W soboty i niedzielę nieczynne</span>
-                </div>
+            <div class="row mx-auto">
+                <div class="col-12 text-center py-3">© 2021 Copyright: Daniel Klemczak</div>
             </div>
-            <div class="col-2 offset-1">
-                <p class="footer-header mt-3 mb-0">Szybkie linki</p>
-                <hr class="border-white mt-1 mb-1">
-                <a class="" href="{{ route('index') }}">Aktualności</a>
-                <br>
-                <a class="" href="{{ route('index') }}">Kontakt</a>
-            </div>
-        </div>
-        <div class="row mx-auto">
-            <div class="col-12 text-center py-3">© 2021 Copyright: Daniel Klemczak</div>
-        </div>
-    </footer>
+        </footer>
     </div>
+    <script>
+        var toggle_icon = document.getElementById('theme-toggle');
+        var body = document.getElementsByTagName('body')[0];
+        var nav = document.getElementsByTagName('nav')[0];
+        var dark_theme_class = 'dark-theme';
+        var light_theme_class = 'light-theme';
+
+        toggle_icon.addEventListener('click', function() {
+            if (body.classList.contains(dark_theme_class)) {
+
+                body.classList.remove(dark_theme_class);
+                body.classList.add(light_theme_class);
+
+                nav.classList.remove(dark_theme_class);
+                nav.classList.add(light_theme_class);
+
+                setCookie('theme', 'light');
+            }
+            else {
+                body.classList.add(dark_theme_class);
+                body.classList.remove(light_theme_class);
+
+                nav.classList.remove(dark_theme_class);
+                nav.classList.add(light_theme_class);
+
+                setCookie('theme', 'dark');
+            }
+        });
+
+        function setCookie(name, value) {
+            var d = new Date();
+            d.setTime(d.getTime() + (365*24*60*60*1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+    </script>
 </body>
 </html>

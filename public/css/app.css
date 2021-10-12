@@ -3934,7 +3934,7 @@ textarea.form-control-lg {
   padding: 0.5rem 1rem;
   color: #3490dc;
   text-decoration: none;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  /*transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;*/
 }
 @media (prefers-reduced-motion: reduce) {
   .nav-link {
@@ -11289,3 +11289,17 @@ textarea.form-control-lg {
     transform: translateY(0%);
   }
 
+.dark-theme {
+    color: white !important;
+    background-color: black !important;
+}
+
+.dark-theme .navbar-brand {
+    color: white !important;
+    background-color: black !important;
+}
+
+.dark-theme .nav-link {
+    color: white !important;
+    background-color: black !important;
+}

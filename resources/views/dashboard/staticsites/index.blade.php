@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="text-center text-white rounded color">
+        <div class="text-center rounded color">
             <h1 class="display-4">Strony Statyczne</h1>
         </div>
         <div class="row mt-2 border-bottom">

@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
-    <div class="text-center text-white rounded color">
-        <h1 class="display-4">Aktualności</h1>
+    <div class="text-center rounded color">
+        <h1 class="display-4">Strony statyczne</h1>
     </div>
 <form enctype="multipart/form-data" action="{{ route('dashboard.staticsites.update', $staticsites->id) }}" method="post" accept-charset="utf-8">
 

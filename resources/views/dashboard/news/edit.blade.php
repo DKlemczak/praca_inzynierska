@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="text-center text-white rounded color">
+    <div class="text-center rounded color">
         <h1 class="display-4">Aktualności</h1>
     </div>
 <form enctype="multipart/form-data" action="{{ route('dashboard.news.update', $news->id) }}" method="post" accept-charset="utf-8">
@@ -24,7 +24,7 @@
         <div class="row no-gutters mb-2">
             <label for="content" class="col-form-label">Zawartość: </label>
             <div class="color ml-auto">
-                <textarea class="form-control" name="content" style="max-width: 100%;" rows="15">{!! $news ->content !!}</textarea>
+                <textarea id="mytextarea" class="form-control" name="content" style="max-width: 100%;" rows="15">{!! $news ->content !!}</textarea>
                 @if ($errors->has('content'))
                     <span class="help-block">
                         <strong>{{ $errors->first('content') }}</strong>
@@ -39,4 +39,9 @@
     </div>
 </form>
 </div>
+<script type="text/javascript">
+    tinymce.init({
+      selector: '#mytextarea'
+    });
+</script>
 @endsection
