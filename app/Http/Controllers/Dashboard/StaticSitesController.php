@@ -11,7 +11,7 @@ class StaticSitesController extends Controller
 {
     public function index()
     {
-        $staticsites = StaticSite::get();
+        $staticsites = StaticSite::paginate(15);
         return view('dashboard.staticsites.index', ['staticsites' => $staticsites]);
     }
 

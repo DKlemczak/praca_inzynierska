@@ -29,5 +29,6 @@
             </div>
         </div>
         @endforeach
+        {{ $staticsites->links() }}
     </div>
 @endsection

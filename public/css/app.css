@@ -230,8 +230,7 @@ sup {
 }
 
 a {
-  color: #3490dc;
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:hover {
   color: #2a73b0;
@@ -11293,7 +11292,9 @@ textarea.form-control-lg {
     color: white !important;
     background-color: black !important;
 }
-
+.dark-theme a {
+    color: white !important;
+}
 .dark-theme .navbar-brand {
     color: white !important;
     background-color: black !important;

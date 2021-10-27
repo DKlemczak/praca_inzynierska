@@ -11,7 +11,7 @@ class NewsController extends Controller
 {
     public function index()
     {
-        $news = News::get();
+        $news = News::paginate(15);
         return view('dashboard.news.index', ['news' => $news]);
     }
 

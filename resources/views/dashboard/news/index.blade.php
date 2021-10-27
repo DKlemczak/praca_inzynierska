@@ -50,5 +50,6 @@
             </div>
             </div>
         @endforeach
+        {{ $news->links() }}
     </div>
 @endsection
