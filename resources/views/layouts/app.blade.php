@@ -142,7 +142,7 @@
                     <br>
                     <a class="" href="{{ route('about') }}">O nas</a>
                     <br>
-                    <a class="" href="{{ route('ad') }}">Kontakt</a>
+                    <a class="" href="{{ route('contact') }}">Kontakt</a>
                 </div>
             </div>
             <div class="row mx-auto">

@@ -20,9 +20,10 @@ Route::get('/', "App\Http\Controllers\SiteController@index")->name('index');
 Route::get('/accessibility-declaration', "App\Http\Controllers\SiteController@ad")->name('ad');
 Route::get('/tos', "App\Http\Controllers\SiteController@tos")->name('tos');
 Route::get('/about', "App\Http\Controllers\SiteController@about")->name('about');
-Route::get('/contact', "App\Http\Controllers\SiteController@contact")->name('contact');
+Route::get('/contact', "App\Http\Controllers\ContactController@index")->name('contact');
 
 Route::get('/news', "App\Http\Controllers\NewsController@index")->name('news.index');
+Route::get('/news/{id}', "App\Http\Controllers\NewsController@details")->name('news.details');
 
 Route::group(['middleware' => 'admin'], function ()
 {
