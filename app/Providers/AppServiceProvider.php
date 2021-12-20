@@ -37,5 +37,13 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with('theme', $theme);
         });
+        View::composer('layouts.app', function ($view) {
+            $FontSize = \Cookie::get('FontSize');
+            if( $FontSize != 'fontA' && $FontSize != 'fontAA' && $FontSize != 'fontAAA') {
+                $FontSize = 'fontA';
+            }
+
+            $view->with('FontSize', $FontSize);
+        });
     }
 }

@@ -11280,18 +11280,21 @@ textarea.form-control-lg {
     height: 30px;
     text-decoration: none;
     position: absolute;
-    transform: translateY(-100%);
+    transform: translateY(-120%);
 }
 
 .ukryte-menu:focus {
     text-decoration: none;
     transform: translateY(0%);
+    font-size: 1em !important;
   }
 
 .dark-theme {
     color: white !important;
     background-color: black !important;
+    border-color: white;
 }
+
 .dark-theme a {
     color: white !important;
 }
@@ -11303,4 +11306,51 @@ textarea.form-control-lg {
 .dark-theme .nav-link {
     color: white !important;
     background-color: black !important;
+}
+
+.dark-theme .card {
+  color: white !important;
+  background-color: black !important;
+  border-color: white;
+}
+
+.dark-theme .card-header {
+  color: white !important;
+  background-color: black !important;
+  border-color: white;
+}
+
+.dark-theme .form-control {
+  color: white !important;
+  background-color: black !important;
+  border-color: white;
+}
+
+.dark-theme .btn-primary {
+  color: white !important;
+  background-color: black !important;
+  border-color: white;
+}
+
+.fontA {
+  font-size: 0.9rem;
+}
+
+.fontA .navbar-brand {
+  font-size: 1.125rem;
+}
+
+.fontAA {
+  font-size: 1.25rem;
+}
+
+.fontAA .navbar-brand {
+  font-size: 1.375rem;
+}
+
+.fontAAA {
+  font-size: 1.5rem
+}
+.fontAAA .navbar-brand {
+  font-size: 1.625rem;
 }

@@ -20,7 +20,7 @@
     <!-- Style -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="{{ $theme . '-theme' }}">
+<body class="{{ $theme . '-theme'}} {{ $FontSize }}">
     <div id="app">
         <div class="col-12 row" style="position: fixed; z-index:10;">
             <div>
@@ -29,10 +29,7 @@
                 <a class="ukryte-menu px-2" aria-label="Przejście do stopki strony" href="#footer">Stopka strony</a>
             </div>
         </div>
-        <div class="dostepnosci">
-            <!--Tutaj dostępności-->
-        </div>
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm {{ $theme . '-theme' }}">
+        <nav class="navbar navbar-expand-md navbar-light border-bottom {{ $theme . '-theme' }}">
             <div class="container" id="menu">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -65,9 +62,9 @@
                     <ul class="navbar-nav align-self-end ms-auto">
                         <li>
                             <i  id="theme-toggle" class="fas fa-adjust"></i>
-                            <span>A</span>
-                            <span>A+</span>
-                            <span>A++</span>
+                            <span onclick="setFontSize('fontA')">A</span>
+                            <span onclick="setFontSize('fontAA')">A+</span>
+                            <span onclick="setFontSize('fontAAA')">A++</span>
                         </li>
                         @guest
                              <!--@if (Route::has('login'))
@@ -110,7 +107,7 @@
             @yield('content')
         </main>
         <footer class="footer font-small">
-            <div class="row mx-auto justify-content-center text-center shadow pb-3">
+            <div class="row mx-auto justify-content-center text-center pb-3 border-top">
                 <div class="col-2">
                     <p class="footer-header mt-3 mb-0">Dane kontaktowe</p>
                     <hr class="border-white mt-1 mb-1">
@@ -118,8 +115,7 @@
                         <strong>Widzialni w internecie</strong><br>
                         <span tabindex="0">ul. {!!$contact->street!!} {!!$contact->building_number!!}</span><br> <span tabindex="0">
                         <i aria-label="Kod pocztowy" class="fa fa-home"></i> {!!$contact->postcode!!} {!!$contact->city!!}</span><br>
-                        <span tabindex="0"><i aria-label="Adres E-mail" class="fa fa-envelope"></i></span>
-                        <a>{!!$contact->email!!}</a><br>
+                        <span tabindex="0"><i aria-label="Adres E-mail" class="fa fa-envelope"></i> {!!$contact->email!!}</span><br>
                         <span tabindex="0"><i aria-label="Numer telefonu" class="fas fa-phone-square"></i> {!!$contact->phone_number!!}</span><br>
                     </div>
                 </div>
@@ -134,19 +130,19 @@
                 <div class="col-2 offset-1">
                     <p class="footer-header mt-3 mb-0">Szybkie linki</p>
                     <hr class="border-white mt-1 mb-1">
-                    <a class="" href="{{ route('news.index') }}">Aktualności</a>
+                    <a href="{{ route('news.index') }}">Aktualności</a>
                     <br>
-                    <a class="" href="{{ route('ad') }}">Deklaracja dostępności</a>
+                    <a href="{{ route('ad') }}">Deklaracja dostępności</a>
                     <br>
-                    <a class="" href="{{ route('tos') }}">Regulamin</a>
+                    <a href="{{ route('tos') }}">Regulamin</a>
                     <br>
-                    <a class="" href="{{ route('about') }}">O nas</a>
+                    <a href="{{ route('about') }}">O nas</a>
                     <br>
-                    <a class="" href="{{ route('contact') }}">Kontakt</a>
+                    <a href="{{ route('contact') }}">Kontakt</a>
                 </div>
             </div>
-            <div class="row mx-auto">
-                <div class="col-12 text-center py-3">© 2021 Copyright: Daniel Klemczak</div>
+            <div class="row mx-auto border-top">
+                <div class="col-12 text-center py-3"><p tabindex="0" class="m-0 p-0">© 2021 Copyright: Daniel Klemczak</p></div>
             </div>
         </footer>
     </div>
@@ -172,12 +168,43 @@
                 body.classList.add(dark_theme_class);
                 body.classList.remove(light_theme_class);
 
-                nav.classList.remove(dark_theme_class);
-                nav.classList.add(light_theme_class);
+                nav.classList.add(dark_theme_class);
+                nav.classList.remove(light_theme_class);
 
                 setCookie('theme', 'dark');
             }
         });
+        
+        function setFontSize(mode) {
+            var body = document.getElementsByTagName('body')[0];
+            var a = 'fontA';
+            var aa = 'fontAA';
+            var aaa = 'fontAAA';
+            if(mode == 'fontA')
+            {
+                body.classList.add(a);
+                body.classList.remove(aa);
+                body.classList.remove(aaa);
+
+                setCookie('FontSize', mode);
+            }
+            else if(mode == 'fontAA')
+            {
+                body.classList.remove(a);
+                body.classList.add(aa);
+                body.classList.remove(aaa);
+
+                setCookie('FontSize', mode);
+            }
+            else if(mode == 'fontAAA')
+            {
+                body.classList.remove(a);
+                body.classList.remove(aa);
+                body.classList.add(aaa);
+
+                setCookie('FontSize', mode);
+            }
+        }
 
         function setCookie(name, value) {
             var d = new Date();

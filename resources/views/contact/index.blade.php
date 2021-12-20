@@ -2,19 +2,14 @@
 
 @section('content')
 <div class="container">
-    <label for="city" class="col-form-label">Miasto: </label>
-        <p>{{$contact->city}}</p>
-    <label for="postcode" class="col-form-label">Kod pocztowy: </label>
-        <p>{!! $contact->postcode !!}"</p>
-    <label for="post" class="col-form-label">Poczta: </label>
-        <p>{!! $contact->post !!}</p>
-    <label for="street" class="col-form-label">Ulica: </label>
-        <p>{{$contact->street}}</p>
-    <label for="building_number" class="col-form-label">Numer budynku: </label>
-        <p>{{$contact->building_number}}</p>
-    <label for="phone_number" class="col-form-label">Numer telefonu: </label>
-        <p>{{$contact->phone_number}}</p>
-    <label for="email" class="col-form-label">Email: </label>
-        <p>{{$contact->email}}</p>
+    <h1 tabindex="0"> Dane kontaktowe strony Widzialni w Internecie </h1>
+    <label tabindex="0" for="street" class="col-form-label pb-0">Adres: </label>
+        <p tabindex="0">{{$contact->city}}, {{$contact->street}} {{$contact->building_number}}</p>
+    <label tabindex="0" for="post" class="col-form-label pb-0">Poczta: </label>
+        <p tabindex="0">{!! $contact->post !!}, {!! $contact->postcode !!}</p>
+    <label tabindex="0" for="phone_number" class="col-form-label pb-0">Numer telefonu: </label>
+        <p tabindex="0">{{$contact->phone_number}}</p>
+    <label tabindex="0" for="email" class="col-form-label pb-0">Email: </label>
+        <p tabindex="0">{{$contact->email}}</p>
 </div>
 @endsection
