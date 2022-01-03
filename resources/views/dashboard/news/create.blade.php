@@ -39,7 +39,14 @@
 </form>
 <script type="text/javascript">
     tinymce.init({
-      selector: '#mytextarea'
+        selector: '#mytextarea',
+        language: 'pl',
+        plugins: [
+            "image wordcount"
+        ],
+        image_title: true,
+        relative_urls : false,
+        automatic_uploads: true
     });
 </script>
 @endsection

@@ -29,7 +29,7 @@
                 <a class="ukryte-menu px-2" aria-label="Przejście do stopki strony" href="#footer">Stopka strony</a>
             </div>
         </div>
-        <nav class="navbar navbar-expand-md navbar-light border-bottom {{ $theme . '-theme' }}">
+        <nav class="navbar navbar-color navbar-expand-md navbar-light border-bottom {{ $theme . '-theme' }}">
             <div class="container" id="menu">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -41,30 +41,31 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Lewa strona menu -->
                     <ul class="navbar-nav me-auto">
-                        <li>
-                            <a class="nav-link" href="{{ route('news.index') }}">Aktualności</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="{{ route('ad') }}">Deklaracja dostępności</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="{{ route('tos') }}">Regulamin</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="{{ route('about') }}">O nas</a>
+                        <li class="nav-item">
+                            <a class="nav-link onhoverline" href="{{ route('news.index') }}">Aktualności</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('contact') }}">Kontakt</a>
+                            <a class="nav-link onhoverline" href="{{ route('ad') }}">Deklaracja dostępności</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link onhoverline" href="{{ route('tos') }}">Regulamin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link onhoverline" href="{{ route('about') }}">O nas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link onhoverline" href="{{ route('contact') }}">Kontakt</a>
                         </li>
                     </ul>
 
                     <!-- Prawa strona menu -->
-                    <ul class="navbar-nav align-self-end ms-auto">
-                        <li>
-                            <i  id="theme-toggle" class="fas fa-adjust"></i>
-                            <span onclick="setFontSize('fontA')">A</span>
-                            <span onclick="setFontSize('fontAA')">A+</span>
-                            <span onclick="setFontSize('fontAAA')">A++</span>
+                    <ul class="navbar-nav align-self-end m-auto">
+                        <li class="nav-item m-auto">
+                            <i id="theme-toggle" class="fas fa-adjust onhoverline"></i>
+                            <span class="onhoverline" onclick="setFontSize('fontA')">A</span>
+                            <span class="onhoverline" onclick="setFontSize('fontAA')">A+</span>
+                            <span class="onhoverline" onclick="setFontSize('fontAAA')">A++</span>
+                            <i class="fas fa-align-left" onclick="unjustifyText()"></i>
                         </li>
                         @guest
                              <!--@if (Route::has('login'))
@@ -78,16 +79,15 @@
                                 </li>
                             @endif-->
                         @else
+                        @if(Auth::user()->is_admin)
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                @if(Auth::user()->is_admin)
                                 <a class="dropdown-item" href="{{ route('dashboard') }}">
                                     Panel administratora
                                 </a>
-                                @endif
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
@@ -98,17 +98,18 @@
                                 </form>
                             </div>
                         </li>
+                        @endif
                         @endguest
                     </ul>
                 </div>
             </div>
         </nav>
-        <main class="py-4" id="content" style="min-height: 69vh;">
+        <main class="py-4" id="content" style="min-height: 65vh;">
             @yield('content')
         </main>
         <footer class="footer font-small">
             <div class="row mx-auto justify-content-center text-center pb-3 border-top">
-                <div class="col-2">
+                <div class="col-lg-2 col-12">
                     <p class="footer-header mt-3 mb-0">Dane kontaktowe</p>
                     <hr class="border-white mt-1 mb-1">
                     <div class="textwidget text-left">
@@ -119,7 +120,7 @@
                         <span tabindex="0"><i aria-label="Numer telefonu" class="fas fa-phone-square"></i> {!!$contact->phone_number!!}</span><br>
                     </div>
                 </div>
-                <div class="col-2 offset-1">
+                <div class="col-lg-2 col-12 offset-lg-1">
                     <p class="footer-header mt-3 mb-0">Godziny kontaktowe</p>
                     <hr class="border-white mt-1 mb-1">
                     <div class="textwidget text-left">
@@ -127,7 +128,7 @@
                         <i class="far fa-clock"></i> <span tabindex="0">W soboty i niedzielę nieczynne</span>
                     </div>
                 </div>
-                <div class="col-2 offset-1">
+                <div class="col-lg-2 col-12 offset-lg-1">
                     <p class="footer-header mt-3 mb-0">Szybkie linki</p>
                     <hr class="border-white mt-1 mb-1">
                     <a href="{{ route('news.index') }}">Aktualności</a>
@@ -203,6 +204,21 @@
                 body.classList.add(aaa);
 
                 setCookie('FontSize', mode);
+            }
+        }
+
+        function unjustifyText() {
+            var body = document.getElementsByTagName('main')[0];
+            var alignClass = 'text-left';
+            if(body.classList.contains(alignClass))
+            {
+                body.classList.remove(alignClass);
+                setCookie('alignClass', '');
+            }
+            else
+            {
+                body.classList.add(alignClass);
+                setCookie('alignClass', alignClass);
             }
         }
 

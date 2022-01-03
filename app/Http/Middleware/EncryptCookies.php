@@ -13,6 +13,7 @@ class EncryptCookies extends Middleware
      */
     protected $except = [
         'theme',
-        'FontSize'
+        'FontSize',
+        'alignClass'
     ];
 }

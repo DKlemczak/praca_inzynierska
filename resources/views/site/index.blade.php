@@ -5,6 +5,5 @@
     <div class="row m-0 p-0 col-12">
         <p>{!!$StaticSite->content!!}</p>
     </div>
-
 </div>
 @endsection

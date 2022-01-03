@@ -29,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
             $contact = Contact::first();
             $view->with('contact',$contact);
         });
+
         View::composer('layouts.app', function ($view) {
             $theme = \Cookie::get('theme');
             if ($theme != 'dark' && $theme != 'light') {
@@ -44,6 +45,15 @@ class AppServiceProvider extends ServiceProvider
             }
 
             $view->with('FontSize', $FontSize);
+        });
+
+        View::composer('layouts.app', function ($view) {
+            $alignClass = \Cookie::get('alignClass');
+            if( $alignClass != 'text-left' && $alignClass != '') {
+                $alignClass = '';
+            }
+
+            $view->with('alignClass', $alignClass);
         });
     }
 }
