@@ -38,6 +38,8 @@ Route::group(['middleware' => 'admin'], function ()
         'destroy' => 'dashboard.news.destroy'
     ]], ['except' => ['show']])->middleware(['auth', 'admin']);
 
+    Route::post('file/upload/news', 'App\Http\Controllers\Dashboard\UploadImageController@storeImageNews')->name('file.upload.post');
+
     Route::resource('dashboard/staticsites', 'App\Http\Controllers\Dashboard\StaticSitesController', ['except'=>['show'], 'names' => [
         'index'   => 'dashboard.staticsites.index',
         'create'  => 'dashboard.staticsites.create',

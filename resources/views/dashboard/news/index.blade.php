@@ -7,11 +7,10 @@
             <a class="btn btn-lg btn-secondary mb-1" href="{{ route('dashboard.news.create') }}">Dodaj</a>
             </div>
             <div class="row mt-2 border-bottom">
-                <div class="col-1"></div>
                 <div class="col-1">
                     <span class="text-center h5">Tytuł</span>
                 </div>
-                <div class="col-4">
+                <div class="col-6">
                     <span class="text-center h5">Zawartość</span>
                 </div>
                 <div class="col-2">
@@ -24,11 +23,10 @@
             </div>
         @foreach ($news as $new)
             <div class="row mt-2 border-bottom">
-                <div class="col-1"></div>
                 <div class="col-1">
                     <span class="text-center">{!! $new->title !!}</span>
                 </div>
-                <div class="col-4">
+                <div class="col-6">
                     <span class="text-center">{{ $new->content }}</span>
                 </div>
                 <div class="col-2">
@@ -47,7 +45,6 @@
                     <button type="submit" class="btn btn-danger">Usuń</button></a>
                     </form>
                 </div>
-            </div>
             </div>
         @endforeach
         {{ $news->links() }}

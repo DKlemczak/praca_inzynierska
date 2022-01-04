@@ -29,12 +29,12 @@
                 <a class="ukryte-menu px-2" aria-label="Przejście do stopki strony" href="#footer">Stopka strony</a>
             </div>
         </div>
-        <nav class="navbar navbar-color navbar-expand-md navbar-light border-bottom {{ $theme . '-theme' }}">
+        <nav class="navbar navbar-color navbar-expand-lg navbar-light border-bottom {{ $theme . '-theme' }}">
             <div class="container" id="menu">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand onhoverline" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -60,12 +60,12 @@
 
                     <!-- Prawa strona menu -->
                     <ul class="navbar-nav align-self-end m-auto">
-                        <li class="nav-item m-auto">
+                        <li class="nav-item my-auto mr-auto">
                             <i id="theme-toggle" class="fas fa-adjust onhoverline"></i>
                             <span class="onhoverline" onclick="setFontSize('fontA')">A</span>
                             <span class="onhoverline" onclick="setFontSize('fontAA')">A+</span>
                             <span class="onhoverline" onclick="setFontSize('fontAAA')">A++</span>
-                            <i class="fas fa-align-left" onclick="unjustifyText()"></i>
+                            <i class="fas fa-align-left onhoverline" onclick="unjustifyText()"></i>
                         </li>
                         @guest
                              <!--@if (Route::has('login'))
@@ -175,7 +175,7 @@
                 setCookie('theme', 'dark');
             }
         });
-        
+
         function setFontSize(mode) {
             var body = document.getElementsByTagName('body')[0];
             var a = 'fontA';
