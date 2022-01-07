@@ -44,8 +44,18 @@
     tinymce.init({
         selector: '#mytextarea',
         language: 'pl',
+        style_formats: [
+            {
+            title: 'Tabindex',
+            selector: 'p,li',
+            attributes: {
+                'tabindex': '0'
+            }
+            },
+        ],
+        style_formats_merge: true,
         plugins: [
-            "image wordcount"
+            "image wordcount code"
         ],
         image_title: true,
         automatic_uploads: true,

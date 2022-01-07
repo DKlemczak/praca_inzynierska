@@ -11392,6 +11392,10 @@ textarea.form-control-lg {
 .navbar-color a {
   color: white !important;
 }
+
+.navbar-color a:hover {
+    text-decoration: underline;
+}
 .navbar-color .dropdown-menu {
   color: white !important;
   background-color: #7F35AA !important;
@@ -11400,7 +11404,7 @@ textarea.form-control-lg {
 .navbar-color .dropdown-item:hover {
     color: white !important;
     background-color: #7F35AA !important;
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .onhoverline:hover {
@@ -11411,8 +11415,23 @@ textarea.form-control-lg {
   text-align: left !important;
 }
 
-
 .text-left div {
   text-align: left !important;
+}
+
+.footerdiv {
+    color: white !important;
+    background-color: #333333 !important;
+    border-color: #333333 !important;
+}
+
+.footerdiv a {
+    color: white !important;
+}
+
+.copyrightdiv {
+    color: white !important;
+    background-color: #111111 !important;
+    border-color: #111111 !important;
 }
 

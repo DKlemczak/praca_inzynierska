@@ -7,30 +7,24 @@
             <a class="btn btn-lg btn-secondary mb-1" href="{{ route('dashboard.news.create') }}">Dodaj</a>
             </div>
             <div class="row mt-2 border-bottom">
-                <div class="col-1">
+                <div class="col-3">
                     <span class="text-center h5">Tytuł</span>
                 </div>
                 <div class="col-6">
                     <span class="text-center h5">Zawartość</span>
                 </div>
-                <div class="col-2">
-                    <span class="text-center h5">Data dodania</span>
-                </div>
-                <div class="col-2">
+                <div class="col-1">
                     <span class="text-center h5">Użytkownik</span>
                 </div>
-                <div class="col-1"></div>
+                <div class="col-2"></div>
             </div>
         @foreach ($news as $new)
             <div class="row mt-2 border-bottom">
-                <div class="col-1">
-                    <span class="text-center">{!! $new->title !!}</span>
+                <div class="col-3">
+                    <span style="overflow: hidden; word-break: break-all; -webkit-line-clamp: 1; display: -webkit-box; -webkit-box-orient: vertical;">{!! $new->title !!}</span>
                 </div>
                 <div class="col-6">
-                    <span class="text-center">{{ $new->content }}</span>
-                </div>
-                <div class="col-2">
-                    <span class="text-center">{!! $new->created_at !!}</span>
+                    <span style="overflow: hidden; word-break: break-all; -webkit-line-clamp: 1; display: -webkit-box; -webkit-box-orient: vertical;">{{ $new->content }}</span>
                 </div>
                 <div class="col-1">
                     <span class="text-center">{!! $new->user->name !!}</span>

@@ -104,11 +104,11 @@
                 </div>
             </div>
         </nav>
-        <main class="py-4" id="content" style="min-height: 65vh;">
+        <main class="py-4" id="content" style="min-height: 67.5vh;">
             @yield('content')
         </main>
         <footer class="footer font-small">
-            <div class="row mx-auto justify-content-center text-center pb-3 border-top">
+            <div class="row mx-auto justify-content-center text-center pb-2 border-top footerdiv">
                 <div class="col-lg-2 col-12">
                     <p class="footer-header mt-3 mb-0">Dane kontaktowe</p>
                     <hr class="border-white mt-1 mb-1">
@@ -142,7 +142,7 @@
                     <a href="{{ route('contact') }}">Kontakt</a>
                 </div>
             </div>
-            <div class="row mx-auto border-top">
+            <div class="row mx-auto border-top copyrightdiv">
                 <div class="col-12 text-center py-3"><p tabindex="0" class="m-0 p-0">© 2021 Copyright: Daniel Klemczak</p></div>
             </div>
         </footer>
