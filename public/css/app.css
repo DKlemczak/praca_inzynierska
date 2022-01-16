@@ -11349,8 +11349,24 @@ textarea.form-control-lg {
     border-color: white;
 }
 
+.dark-theme .footerdiv {
+  color: white !important;
+  background-color: black !important;
+  border-color: white;
+}
+
+.dark-theme .copyrightdiv {
+  color: white !important;
+  background-color: black !important;
+  border-color: white;
+}
+
 .fontA {
   font-size: 1rem;
+}
+
+.fontA h1 {
+  font-size: 2.25rem !important;
 }
 
 .fontA .navbar-brand {
@@ -11365,6 +11381,10 @@ textarea.form-control-lg {
   font-size: 1.25rem;
 }
 
+.fontAA h1 {
+  font-size: 2.50rem !important;
+}
+
 .fontAA .navbar-brand {
   font-size: 1.475rem;
 }
@@ -11376,6 +11396,11 @@ textarea.form-control-lg {
 .fontAAA {
   font-size: 1.5rem;
 }
+
+.fontAAA h1 {
+  font-size: 2.75rem !important;
+}
+
 .fontAAA .navbar-brand {
   font-size: 1.725rem;
 }

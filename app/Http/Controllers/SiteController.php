@@ -27,4 +27,8 @@ class SiteController extends Controller
         $staticsite = StaticSite::where('name','O nas')->first();
         return view('site.index',['StaticSite' => $staticsite]);
     }
+    public function wideotest()
+    {
+        return view('video-test.index');
+    }
 }

@@ -56,6 +56,9 @@
                         <li class="nav-item">
                             <a class="nav-link onhoverline" href="{{ route('contact') }}">Kontakt</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link onhoverline" href="{{ route('video-test') }}">Test skryptu dla wideo</a>
+                        </li>
                     </ul>
 
                     <!-- Prawa strona menu -->
@@ -104,10 +107,10 @@
                 </div>
             </div>
         </nav>
-        <main class="py-4" id="content" style="min-height: 67.5vh;">
+        <main role="Zawartość podstrony" class="py-4" id="content" style="min-height: 68.6vh;">
             @yield('content')
         </main>
-        <footer class="footer font-small">
+        <footer role="Stopka strony" class="footer font-small">
             <div class="row mx-auto justify-content-center text-center pb-2 border-top footerdiv">
                 <div class="col-lg-2 col-12">
                     <p class="footer-header mt-3 mb-0">Dane kontaktowe</p>
