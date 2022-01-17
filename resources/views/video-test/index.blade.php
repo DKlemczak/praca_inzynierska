@@ -6,8 +6,14 @@
         <video id="wideo" muted controls>
             <source src="wideo/test.mp4" type="video/mp4" />
         </video>
-        <button OnClick="GrajPauza()" id="graj-pauza">Włącz wideo</button>
+        <button data-toggle="tooltip" title="Przycisk od włączania i wyłączania wideo" OnClick="GrajPauza()" id="descr">Włącz wideo</button>
         <button OnClick="Wycisz()" id="wycisz">Wycisz</button>
+        <div class="tooltip bs-tooltip-top" role="tooltip">
+            <div class="arrow"></div>
+            <div class="tooltip-inner">
+                Przycisk od włączania i wyłączania wideo
+            </div>
+          </div>
     </div>
 </div>
 <script>
@@ -19,7 +25,7 @@
         {
             wideo.play();
             grajpauzaprzycisk.innerHTML = "Spauzuj wideo";
-        } 
+        }
         else
         {
             wideo.pause();

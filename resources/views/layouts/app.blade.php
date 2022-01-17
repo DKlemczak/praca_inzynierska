@@ -20,7 +20,7 @@
     <!-- Style -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="{{ $theme . '-theme'}} {{ $FontSize }}">
+<body class="{{ $theme . '-theme'}} {{ $FontSize }} {{$TextSpacing}}">
     <div id="app">
         <div class="col-12 row" style="position: fixed; z-index:10;">
             <div>
@@ -41,22 +41,22 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Lewa strona menu -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
+                        <li class="nav-item m-auto">
                             <a class="nav-link onhoverline" href="{{ route('news.index') }}">Aktualności</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item m-auto">
                             <a class="nav-link onhoverline" href="{{ route('ad') }}">Deklaracja dostępności</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item m-auto">
                             <a class="nav-link onhoverline" href="{{ route('tos') }}">Regulamin</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item m-auto">
                             <a class="nav-link onhoverline" href="{{ route('about') }}">O nas</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item m-auto">
                             <a class="nav-link onhoverline" href="{{ route('contact') }}">Kontakt</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item m-auto">
                             <a class="nav-link onhoverline" href="{{ route('video-test') }}">Test skryptu dla wideo</a>
                         </li>
                     </ul>
@@ -68,6 +68,7 @@
                             <span class="onhoverline" onclick="setFontSize('fontA')">A</span>
                             <span class="onhoverline" onclick="setFontSize('fontAA')">A+</span>
                             <span class="onhoverline" onclick="setFontSize('fontAAA')">A++</span>
+                            <span class="onhoverline" onclick="setTextSpacing()">Odstęp</span>
                             <i class="fas fa-align-left onhoverline" onclick="unjustifyText()"></i>
                         </li>
                         @guest
@@ -107,10 +108,10 @@
                 </div>
             </div>
         </nav>
-        <main role="Zawartość podstrony" class="py-4" id="content" style="min-height: 68.6vh;">
+        <main role="main" class="py-4" id="content" style="min-height: 68.6vh;">
             @yield('content')
         </main>
-        <footer role="Stopka strony" class="footer font-small">
+        <footer role="contentinfo" class="footer font-small">
             <div class="row mx-auto justify-content-center text-center pb-2 border-top footerdiv">
                 <div class="col-lg-2 col-12">
                     <p class="footer-header mt-3 mb-0">Dane kontaktowe</p>
@@ -207,6 +208,21 @@
                 body.classList.add(aaa);
 
                 setCookie('FontSize', mode);
+            }
+        }
+
+        function setTextSpacing() {
+            var body = document.getElementsByTagName('body')[0];
+            var textspacingClass = 'text-spacing';
+            if(body.classList.contains(textspacingClass))
+            {
+                body.classList.remove(textspacingClass);
+                setCookie('textspacingClass', '');
+            }
+            else
+            {
+                body.classList.add(textspacingClass);
+                setCookie('textspacingClass', textspacingClass);
             }
         }
 

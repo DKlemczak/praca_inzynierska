@@ -46,6 +46,14 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with('FontSize', $FontSize);
         });
+        View::composer('layouts.app', function ($view) {
+            $TextSpacing = \Cookie::get('textspacingClass');
+            if( $TextSpacing != 'text-spacing' && $TextSpacing != '') {
+                $TextSpacing = '';
+            }
+
+            $view->with('TextSpacing', $TextSpacing);
+        });
 
         View::composer('layouts.dashboard', function ($view) {
             $alignClass = \Cookie::get('alignClass');
@@ -85,6 +93,14 @@ class AppServiceProvider extends ServiceProvider
             }
 
             $view->with('alignClass', $alignClass);
+        });
+        View::composer('layouts.dashboard', function ($view) {
+            $TextSpacing = \Cookie::get('textspacingClass');
+            if( $TextSpacing != 'text-spacing' && $TextSpacing != '') {
+                $TextSpacing = '';
+            }
+
+            $view->with('TextSpacing', $TextSpacing);
         });
     }
 }
