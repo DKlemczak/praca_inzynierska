@@ -111,7 +111,7 @@
         <main role="main" class="py-4" id="content" style="min-height: 68.6vh;">
             @yield('content')
         </main>
-        <footer role="contentinfo" class="footer font-small">
+        <footer id="footer" role="contentinfo" class="footer font-small">
             <div class="row mx-auto justify-content-center text-center pb-2 border-top footerdiv">
                 <div class="col-lg-2 col-12">
                     <p class="footer-header mt-3 mb-0">Dane kontaktowe</p>
