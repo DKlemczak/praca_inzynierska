@@ -17,13 +17,13 @@ Auth::routes();
 
 Route::get('/', "App\Http\Controllers\SiteController@index")->name('index');
 
-Route::get('/accessibility-declaration', "App\Http\Controllers\SiteController@ad")->name('ad');
+Route::get('/deklaracja-dostepnosci', "App\Http\Controllers\SiteController@ad")->name('ad');
 Route::get('/tos', "App\Http\Controllers\SiteController@tos")->name('tos');
-Route::get('/about', "App\Http\Controllers\SiteController@about")->name('about');
-Route::get('/contact', "App\Http\Controllers\ContactController@index")->name('contact');
+Route::get('/o-nas', "App\Http\Controllers\SiteController@about")->name('about');
+Route::get('/kontakt', "App\Http\Controllers\ContactController@index")->name('contact');
 
-Route::get('/news', "App\Http\Controllers\NewsController@index")->name('news.index');
-Route::get('/news/{id}', "App\Http\Controllers\NewsController@details")->name('news.details');
+Route::get('/aktualnosci', "App\Http\Controllers\NewsController@index")->name('news.index');
+Route::get('/aktualnosci/{id}-{title}', "App\Http\Controllers\NewsController@details")->name('news.details');
 Route::get('/wideo-test', "App\Http\Controllers\SiteController@wideotest")->name('video-test');
 
 Route::group(['middleware' => 'admin'], function ()

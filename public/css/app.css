@@ -4781,14 +4781,25 @@ textarea.form-control-lg {
   list-style: none;
 }
 
+.breadcrumb-item {
+    text-decoration: none;
+    color:white;
+    padding: 2 2;
+    background-color: #333333;
+}
+
+.breadcrumb-item:hover {
+    color:white;
+    text-decoration: underline;
+}
 .breadcrumb-item + .breadcrumb-item {
   padding-left: 0.5rem;
 }
 .breadcrumb-item + .breadcrumb-item::before {
   float: left;
   padding-right: 0.5rem;
-  color: #6c757d;
-  content: var(--bs-breadcrumb-divider, "/") /* rtl: var(--bs-breadcrumb-divider, "/") */;
+  color: white;
+  content: var(--bs-breadcrumb-divider, "->") /* rtl: var(--bs-breadcrumb-divider, "/") */;
 }
 .breadcrumb-item.active {
   color: #6c757d;
@@ -11344,6 +11355,7 @@ textarea.form-control-lg {
 .dark-theme .navbar-color {
   color: white !important;
   background-color: black !important;
+  border-bottom: 1px solid white !important;
 }
 .dark-theme .navbar-color .dropdown-menu {
     color: white !important;
@@ -11414,6 +11426,7 @@ textarea.form-control-lg {
 .navbar-color {
   color: white !important;
   background-color: #7F35AA !important;
+  border-bottom: 1px solid #7F35AA;
 }
 
 .navbar-color a {
@@ -11486,4 +11499,8 @@ textarea.form-control-lg {
     {
     animation: none;
     }
+}
+
+.nav-active {
+    font-weight: bold;
 }

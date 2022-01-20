@@ -29,9 +29,9 @@
                 <a class="ukryte-menu px-2" aria-label="Przejście do stopki strony" href="#footer">Stopka strony</a>
             </div>
         </div>
-        <nav class="navbar navbar-color navbar-expand-lg navbar-light border-bottom {{ $theme . '-theme' }}">
+        <nav class="navbar navbar-color navbar-expand-lg navbar-light {{ $theme . '-theme' }}">
             <div class="container" id="menu">
-                <a class="navbar-brand onhoverline" href="{{ url('/') }}">
+                <a class="navbar-brand onhoverline {{ Route::currentRouteNamed('index') ? 'nav-active' : '' }}" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -42,22 +42,22 @@
                     <!-- Lewa strona menu -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item m-auto">
-                            <a class="nav-link onhoverline" href="{{ route('news.index') }}">Aktualności</a>
+                            <a class="nav-link onhoverline {{ Route::currentRouteNamed('news.index') ? 'nav-active' : '' }}" aria-label="Odnośnik przekierowujący do podstrony zawierającej aktualności" href="{{ route('news.index') }}">Aktualności</a>
                         </li>
                         <li class="nav-item m-auto">
-                            <a class="nav-link onhoverline" href="{{ route('ad') }}">Deklaracja dostępności</a>
+                            <a class="nav-link onhoverline {{ Route::currentRouteNamed('ad') ? 'nav-active' : '' }}" href="{{ route('ad') }}">Deklaracja dostępności</a>
                         </li>
                         <li class="nav-item m-auto">
-                            <a class="nav-link onhoverline" href="{{ route('tos') }}">Regulamin</a>
+                            <a class="nav-link onhoverline {{ Route::currentRouteNamed('tos') ? 'nav-active' : '' }}" href="{{ route('tos') }}">Regulamin</a>
                         </li>
                         <li class="nav-item m-auto">
-                            <a class="nav-link onhoverline" href="{{ route('about') }}">O nas</a>
+                            <a class="nav-link onhoverline {{ Route::currentRouteNamed('about') ? 'nav-active' : '' }}" href="{{ route('about') }}">O nas</a>
                         </li>
                         <li class="nav-item m-auto">
-                            <a class="nav-link onhoverline" href="{{ route('contact') }}">Kontakt</a>
+                            <a class="nav-link onhoverline {{ Route::currentRouteNamed('contact') ? 'nav-active' : '' }}" href="{{ route('contact') }}">Kontakt</a>
                         </li>
                         <li class="nav-item m-auto">
-                            <a class="nav-link onhoverline" href="{{ route('video-test') }}">Test skryptu dla wideo</a>
+                            <a class="nav-link onhoverline {{ Route::currentRouteNamed('video-test') ? 'nav-active' : '' }}" href="{{ route('video-test') }}">Test skryptu dla wideo</a>
                         </li>
                     </ul>
 
@@ -108,7 +108,16 @@
                 </div>
             </div>
         </nav>
-        <main role="main" class="py-4" id="content" style="min-height: 68.6vh;">
+        <?php $segmenty = ''; ?>
+        <ol class="breadcrumb">
+            @foreach(Request::segments() as $segment)
+            <?php $segmenty .= '/'.$segment; ?>
+            <li class="breadcrumb-item">
+                <a class="breadcrumb-item" href="{{ $segmenty }}">&nbsp; {{$segment}} &nbsp;</a>
+            </li>
+            @endforeach
+        </ol>
+        <main role="main" class="py-4" id="content" style="min-height: 64.7vh;">
             @yield('content')
         </main>
         <footer id="footer" role="contentinfo" class="footer font-small">
@@ -135,15 +144,17 @@
                 <div class="col-lg-2 col-12 offset-lg-1">
                     <p class="footer-header mt-3 mb-0">Szybkie linki</p>
                     <hr class="border-white mt-1 mb-1">
-                    <a href="{{ route('news.index') }}">Aktualności</a>
+                    <a class="{{ Route::currentRouteNamed('index') ? 'nav-active' : '' }}" href="{{route('index') }}">Strona główna </a>
                     <br>
-                    <a href="{{ route('ad') }}">Deklaracja dostępności</a>
+                    <a class="{{ Route::currentRouteNamed('news.index') ? 'nav-active' : '' }}" href="{{ route('news.index') }}">Aktualności</a>
                     <br>
-                    <a href="{{ route('tos') }}">Regulamin</a>
+                    <a class="{{ Route::currentRouteNamed('ad') ? 'nav-active' : '' }}" href="{{ route('ad') }}">Deklaracja dostępności</a>
                     <br>
-                    <a href="{{ route('about') }}">O nas</a>
+                    <a class="{{ Route::currentRouteNamed('tos') ? 'nav-active' : '' }}" href="{{ route('tos') }}">Regulamin</a>
                     <br>
-                    <a href="{{ route('contact') }}">Kontakt</a>
+                    <a class="{{ Route::currentRouteNamed('about') ? 'nav-active' : '' }}" href="{{ route('about') }}">O nas</a>
+                    <br>
+                    <a class="{{ Route::currentRouteNamed('contact') ? 'nav-active' : '' }}" href="{{ route('contact') }}">Kontakt</a>
                 </div>
             </div>
             <div class="row mx-auto border-top copyrightdiv">
