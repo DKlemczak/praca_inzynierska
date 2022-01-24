@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+Kontakt
+@endsection
 @section('content')
 <div class="container">
     <h1 tabindex="0"> Dane kontaktowe strony Widzialni w Internecie </h1>

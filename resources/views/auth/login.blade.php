@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+Logowanie
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -26,12 +28,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Hasło') }}</label>
+                            <label for="hasło" class="col-md-4 col-form-label text-md-right">{{ __('Hasło') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="hasło" type="hasło" class="form-control @error('hasło') is-invalid @enderror" name="hasło" required autocomplete="current-password">
 
-                                @error('password')
+                                @error('hasło')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
