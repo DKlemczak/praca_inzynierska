@@ -59,6 +59,9 @@
                         <li class="nav-item m-auto">
                             <a class="nav-link onhoverline {{ Route::currentRouteNamed('video-test') ? 'nav-active' : '' }}" href="{{ route('video-test') }}">Test skryptu dla wideo</a>
                         </li>
+                        <li class="nav-item m-auto">
+                            <a class="nav-link onhoverline {{ Route::currentRouteNamed('color-picker') ? 'nav-active' : '' }}" href="{{ route('color-picker') }}">Wybór kolorów</a>
+                        </li>
                     </ul>
 
                     <!-- Prawa strona menu -->

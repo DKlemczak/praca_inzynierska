@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\StaticSite;
+use Cookie;
 
 class SiteController extends Controller
 {
@@ -30,5 +31,11 @@ class SiteController extends Controller
     public function wideotest()
     {
         return view('video-test.index');
+    }
+    public function colorpick()
+    {
+        $TextColor = Cookie::get('TextColor');
+        $BackgroundColor = Cookie::get('BackgroundColor');
+        return view('color-picker.index')->with(['BackgroundColor' => $BackgroundColor , 'TextColor'=>$TextColor]);
     }
 }

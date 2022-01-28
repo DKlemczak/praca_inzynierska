@@ -25,6 +25,7 @@ Route::get('/kontakt', "App\Http\Controllers\ContactController@index")->name('co
 Route::get('/aktualnosci', "App\Http\Controllers\NewsController@index")->name('news.index');
 Route::get('/aktualnosci/{id}-{title}', "App\Http\Controllers\NewsController@details")->name('news.details');
 Route::get('/wideo-test', "App\Http\Controllers\SiteController@wideotest")->name('video-test');
+Route::get('/wybor-koloru', "App\Http\Controllers\SiteController@colorpick")->name('color-picker');
 
 Route::group(['middleware' => 'admin'], function ()
 {

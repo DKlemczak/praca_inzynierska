@@ -55,6 +55,13 @@ class AppServiceProvider extends ServiceProvider
             $view->with('TextSpacing', $TextSpacing);
         });
 
+        View::composer('layouts.app', function ($view) {
+            $TextColor = \Cookie::get('TextColor');
+            $BackgroundColor = \Cookie::get('BackgroundColor');
+
+            $view->with(['BackgroundColor', $BackgroundColor], ['TextColor', $TextColor]);
+        });
+
         View::composer('layouts.dashboard', function ($view) {
             $alignClass = \Cookie::get('alignClass');
             if( $alignClass != 'text-left' && $alignClass != '') {
